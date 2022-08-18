@@ -1,0 +1,8 @@
+Usage: wifi [OPTION] {Arguments}
+
+Get status of Wi-Fi or turn it on/off.
+
+on		:Turns wifi on
+off 		:Turns wifi off
+list		:Lists all available wifi
+connect 	:Connect to all available wifi  
