@@ -1,10 +1,9 @@
-# Automation-using-shell-scripts
-Connecting to wifi-networks through command line
+## Wifi CLI simplified
 
 ### Installation
 
 ```
-git clone 
+git clone https://github.com/TanmayPatil105/Automation-using-shell-scripts.git
 ```
 ```
 chmod +x installer.sh
