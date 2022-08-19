@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chmod +x src/wifi
-sudo mv src/wifi /bin/
-mkdir /usr/share/wifi
-mv src/help.txt /usr/share/wifi/
+chmod +x ./src/wifi
+sudo cp ./src/wifi /bin/
+sudo mkdir /usr/share/wifi
+sudo cp ./src/help.txt /usr/share/wifi/
