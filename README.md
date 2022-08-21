@@ -17,6 +17,8 @@ sudo chmod +x installer.sh
 ./installer.sh
 ```
 
+### For more information type wifi --help
+
 ### To uninstall
 
 ```
