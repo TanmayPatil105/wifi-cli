@@ -16,7 +16,7 @@ sudo chmod +x installer.sh
 ```
 ./installer.sh
 ```
-### To uninstall
+### Uninstallation
 
 ```
 ./installer.sh remove
