@@ -19,5 +19,6 @@ then
 	sudo rm /bin/wifi 
 	sudo rm /usr/share/wifi/help.txt
 	sudo rmdir /usr/share/wifi/
+	echo "Uninstalled Succesfully"
 	exit 1
 fi
