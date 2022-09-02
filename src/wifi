@@ -1,4 +1,5 @@
 #!/bin/bash
+cols=$(tput cols)
 
 if [ $# == 0 ]
 then
@@ -7,13 +8,17 @@ then
 fi
 if [ $1 == "--help" ]
 then
-	cat /usr/share/wifi/help.txt
+	cat help.txt
 	exit 1
 fi
 if [ $1 == "list" ]
 then 
 	if [ $(nmcli radio wifi) == "enabled" ]
 	then
+		if [ `expr $cols` -lt  90 ]
+		then
+			resize -s 24 90 > /dev/null
+		fi
 		nmcli dev wifi list > /tmp/wifi.txt
 		cat /tmp/wifi.txt
 		rm /tmp/wifi.txt
@@ -33,6 +38,7 @@ then
 		echo "Wifi is already enabled"
 	else 
 		nmcli radio wifi on
+		echo "Turned on WIFI"
 	fi
 fi
 if [ $1 == "off" ]
@@ -42,6 +48,7 @@ then
 		echo "Wifi is already disabled"
 	else 
 		nmcli radio wifi off
+		echo "Turned off WIFI"
 	fi
 fi
 if [ $1 == "pass" ]
