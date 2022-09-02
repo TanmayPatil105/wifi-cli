@@ -1,6 +1,8 @@
-## Wifi CLI simplified
+# Wifi CLI simplified
 
-### For Linux OS only
+## For Linux OS only
+
+```Last Updated on 02-09-2022```
 
 ### Installation
 
