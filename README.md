@@ -25,5 +25,9 @@ sudo chmod +x installer.sh
 ### Usage 
 
 ```
-wifi --help
+wifi on
+wifi off
+wifi connect '$SSID'  
+wifi list
+wifi pass
 ```
