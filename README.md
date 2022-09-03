@@ -28,6 +28,6 @@ sudo chmod +x installer.sh
 
 ```wifi on```
 ```wifi off```
-```wifi connect '$SSID'```
 ```wifi list```
+```wifi connect '$SSID'```
 ```wifi pass```
