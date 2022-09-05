@@ -8,16 +8,16 @@ then
 fi
 if [ $1 == "--help" ]
 then
-	cat help.txt
+	cat /usr/share/wifi/help.txt
 	exit 1
 fi
 if [ $1 == "list" ]
 then 
 	if [ $(nmcli radio wifi) == "enabled" ]
 	then
-		if [ `expr $cols` -lt  90 ]
+		if [ `expr $cols` -lt  110 ]
 		then
-			resize -s 24 90 > /dev/null
+			resize -s 24 110 > /dev/null
 		fi
 		nmcli dev wifi list > /tmp/wifi.txt
 		cat /tmp/wifi.txt
