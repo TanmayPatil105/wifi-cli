@@ -1,16 +1,31 @@
 #!/bin/bash
 
+DIR="/usr/share/wifi"
+EXE="/bin/wifi"
+
 if [ $# == 0 ]
 then
 	chmod +x ./src/wifi
+	if [ -f "$EXE" ]
+	then
+		sudo rm /bin/wifi
+	fi
 	sudo cp ./src/wifi /bin/
-	if [ -d "/usr/share/wifi/" ]
+	if [ -d "$DIR" ]
 	then
 		echo "Wifi already exists"
+		sudo rm -rf "$DIR"
+		sudo mkdir -p "$DIR"
+		echo "Updated Succesfully"
+
 	else
-		sudo mkdir /usr/share/wifi
+		sudo mkdir -p "$DIR"
 	fi	
-	sudo cp ./src/help.txt /usr/share/wifi/
+	if  [ -f "$DIR"/help.txt ]
+	then
+		sudo rm "$DIR"/help.txt
+	fi
+	sudo cp ./src/help.txt "$DIR"/
 	echo "Installed Succesfully"
 	exit 1
 fi
