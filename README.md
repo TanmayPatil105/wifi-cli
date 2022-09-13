@@ -4,7 +4,7 @@
 
 ```Last Updated on 13-09-2022```
 
-``` Try wifi --help for more information```
+``` Try wifi --help after installation```
 
 ### Installation
 
