@@ -1,6 +1,7 @@
 #!/bin/bash
 cols=$(tput cols)
-
+GREEN="\e[32m"
+ENDCOLOR="\e[0m"
 if [ $# == 0 ]
 then
 	echo "Try wifi --help for more information"
@@ -60,4 +61,24 @@ then
                 nmcli dev wifi show-password
 
         fi
+fi
+if [ $1 == "saved" ]
+then
+	arr=()
+	while IFS= read -r line; do
+   		 arr+=( "$line" )
+	done < <(cd /etc/NetworkManager/system-connections ;ls)
+	i=0
+	sol=()
+	while IFS= read -r line; do
+                 sol+=( "$line" )
+        done < <(while [ $i -lt  ${#arr[@]} ]
+        do
+                echo  "${arr[$i]}" | cut -d'.' -f 1
+                 i=`expr $i + 1`
+        done)
+	#echo -e "$GREEN" 
+	printf '\e[32m%s\t' "${sol[@]}"
+	echo -e "$ENDCOLOR"
+
 fi
