@@ -31,3 +31,4 @@ sudo chmod +x installer.sh
 ```wifi list```
 ```wifi connect '$SSID'```
 ```wifi pass```
+```wifi saved```
