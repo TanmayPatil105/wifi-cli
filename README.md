@@ -2,7 +2,7 @@
 
 ## For Linux OS only
 
-```Last Updated on 02-09-2022```
+```Last Updated on 13-09-2022```
 
 ### Installation
 
