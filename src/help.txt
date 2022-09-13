@@ -7,3 +7,4 @@ off: 		Turns wifi off
 list:		Lists all available wifi
 connect: 	Connect to all available wifi  
 pass:		To share password of connected network
+saved:		To display all the saved networks
