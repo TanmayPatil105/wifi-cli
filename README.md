@@ -9,21 +9,21 @@
 ### Installation
 
 ```
-git clone https://github.com/TanmayPatil105/Automation-using-shell-scripts.git
+$ git clone https://github.com/TanmayPatil105/Automation-using-shell-scripts.git
 ```
 ```
-cd Automation-using-shell-scripts
+$ cd Automation-using-shell-scripts
 ```
 ```
-sudo chmod +x installer.sh
+$ sudo chmod +x installer.sh
 ```
 ```
-./installer.sh
+$ ./installer.sh
 ```
 ### Uninstallation
 
 ```
-./installer.sh remove
+$ ./installer.sh remove
 ```
 
 ### Usage 
