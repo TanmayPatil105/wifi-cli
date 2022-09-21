@@ -4,10 +4,10 @@ GREEN="\e[32m"
 ENDCOLOR="\e[0m"
 if [ $# == 0 ]
 then
-	echo "Try wifi --help for more information"
+	echo "Try wifi --help or -h for more information"
 	exit 1
 fi
-if [ $1 == "--help" ]
+if [ $1 == "--help" -o $1 == "-h" ]
 then
 	cat /usr/share/wifi/help.txt
 	exit 1
@@ -81,4 +81,19 @@ then
 	printf '\e[32m%s\t' "${sol[@]}"
 	echo -e "$ENDCOLOR"
 
+fi
+
+if [ $1 == "hotspot" ]
+then
+	if [ $(nmcli radio wifi) == "disabled" ]
+        then
+                echo "Wifi is turned off!"
+		echo "Turn on wifi"
+		echo "Try \"wifi --help or -h\" for help"
+		exit 1
+	fi
+	timeout 5s echo "Setting up Hotspot"
+	nmcli con up Hotspot 
+	timeout 1s echo "Showing Password" > /dev/null
+	nmcli dev wifi show-password
 fi

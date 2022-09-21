@@ -2,9 +2,11 @@ Usage: wifi [OPTION] {Arguments}
 
 Get status of Wi-Fi or turn it on/off.
 
-on:		Turns wifi on
-off: 		Turns wifi off
-list:		Lists all available wifi
-connect: 	Connect to all available wifi  
-pass:		To share password of connected network
-saved:		To display all the saved networks
+wifi on		Turns wifi on
+wifi off	Turns wifi off
+wifi list	Lists all available wifi
+wifi connect 	Connect to all available wifi  networks
+"SSID"
+wifi pass	To share password of connected network
+wifi saved 	To display all the saved networks
+wifi hotspot 	To turn on wifi hotspot
