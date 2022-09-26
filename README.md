@@ -48,7 +48,7 @@ Please [open an issue on GitHub](https://github.com/TanmayPatil105/Automation-us
 Try changing the "./src/wifi" file using following steps if hotspot option doesn't work
 
 ```
-Instead of the command "nmcli con up hotspot" replace it with the following lines"
+Instead of the command "nmcli con up hotspot" replace it with the following lines
 ```
 ```
 UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot | cut -d= -f2)
