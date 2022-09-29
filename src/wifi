@@ -97,3 +97,7 @@ then
 	timeout 1s echo "Showing Password" > /dev/null
 	nmcli dev wifi show-password
 fi
+if [ $1 == "forget" ]
+then
+	sudo rm /etc/NetworkManager/system-connections/$2.nmconnection
+fi

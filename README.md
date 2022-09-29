@@ -2,7 +2,7 @@
 
 ## For Linux OS only
 
-```Last Updated on 21-09-2022```
+```Last Updated on 29-09-2022```
 
 ``` Try wifi --help after installation```
 
@@ -36,6 +36,7 @@ $ ./installer.sh remove
 ```wifi pass```
 ```wifi saved```
 ```wifi hotspot```
+```wifi forget '$SSID'```
 
 <hr/>
 
