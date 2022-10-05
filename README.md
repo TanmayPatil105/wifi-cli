@@ -1,7 +1,5 @@
 # Wifi CLI simplified
 
-## For Linux OS only
-
 ```Last Updated on 29-09-2022```
 
 ``` Try wifi --help after installation```
