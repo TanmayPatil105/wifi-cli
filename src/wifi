@@ -51,7 +51,7 @@ then
 		echo "Wifi is already enabled"
 	else 
 		nmcli radio wifi on
-		echo "Turned on WIFI"
+		echo "Turned ON WIFI"
 	fi
 	exit 1
 fi
@@ -64,7 +64,7 @@ then
 		echo "Wifi is already disabled"
 	else 
 		nmcli radio wifi off
-		echo "Turned off WIFI"
+		echo "Turned OFF WIFI"
 	fi
 	exit 1
 fi
@@ -112,16 +112,30 @@ then
 		if [ $(nmcli radio wifi) == "disabled" ]
 		then
 			echo "Wifi is turned off!"
-			echo "Turn on wifi"
+			echo "Turn ON wifi"
 			echo "Try \"wifi --help or -h\" for help"
 			exit 1
 		fi
 		timeout 5s echo "Setting up Hotspot..."
 		nmcli con up Hotspot > /dev/null
-		echo "Turned on wifi Hotspot\n"
+		echo "Hotspot is Turned ON"
 		timeout 3s echo "Showing Password..." > /dev/null
 		nmcli dev wifi show-password
+		exit 1
 	fi
+	if [ $# == 2 -a $2 == "off" ]
+	then	
+		if [ $(nmcli radio wifi) == "disabled" ]
+		then
+			echo "Hotspot is already disabled"
+			exit 1
+		fi
+		timeout 3s echo "Turning Hotspot OFF..."
+		nmcli con down Hotspot > /dev/null
+		echo "Hotspot is Turned OFF"
+		exit 1
+	fi
+
 	exit 1
 fi
 
@@ -131,3 +145,5 @@ then
 	sudo rm /etc/NetworkManager/system-connections/$2.nmconnection
 	exit 1
 fi
+
+echo "Try wifi --help or -h for more information"
