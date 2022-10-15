@@ -13,10 +13,10 @@ then
 	sudo cp ./src/wifi /bin/
 	if [ -d "$DIR" ]
 	then
-		echo "Wifi already exists"
 		sudo rm -rf "$DIR"
 		sudo mkdir -p "$DIR"
-		echo "Updated Succesfully"
+		echo "Removing $DIR.."
+		echo "Removing $EXE.."
 
 	else
 		sudo mkdir -p "$DIR"
