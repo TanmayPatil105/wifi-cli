@@ -116,9 +116,10 @@ then
 			echo "Try \"wifi --help or -h\" for help"
 			exit 1
 		fi
-		timeout 5s echo "Setting up Hotspot"
-		nmcli con up Hotspot 
-		timeout 1s echo "Showing Password" > /dev/null
+		timeout 5s echo "Setting up Hotspot..."
+		nmcli con up Hotspot > /dev/null
+		echo "Turned on wifi Hotspot\n"
+		timeout 3s echo "Showing Password..." > /dev/null
 		nmcli dev wifi show-password
 	fi
 	exit 1
