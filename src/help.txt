@@ -10,5 +10,7 @@ wifi connect 	Connect to all available wifi  networks
 wifi pass	To share password of connected network
 wifi saved 	To display all the saved networks
 wifi hotspot 	To turn on wifi hotspot
+wifi hotspot    To turn off wifi hotspot
+off 
 wifi forget	To forget a Network
 "SSID"
