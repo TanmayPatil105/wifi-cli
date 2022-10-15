@@ -1,22 +1,28 @@
 #!/bin/bash
-cols=$(tput cols)
-GREEN="\e[32m"
+
+COLS=$(tput cols)
+GREEN='\e[32m%s\n'
 ENDCOLOR="\e[0m"
+
 if [ $# == 0 ]
 then
 	echo "Try wifi --help or -h for more information"
 	exit 1
 fi
+
+# displays wifi usage
 if [ $1 == "--help" -o $1 == "-h" ]
 then
 	cat /usr/share/wifi/help.txt
 	exit 1
 fi
+
+# displays list of available networks
 if [ $1 == "list" ]
 then 
 	if [ $(nmcli radio wifi) == "enabled" ]
 	then
-		if [ `expr $cols` -lt  110 ]
+		if [ `expr $COLS` -lt  110 ]
 		then
 			resize -s 24 110 > /dev/null
 		fi
@@ -27,11 +33,17 @@ then
 		echo "Wifi is disabled"
 
 	fi
+	exit 1
 fi
+
+# connects to given SSID
 if [ $1 == "connect" ]
 then
 	nmcli dev wifi connect $2
+	exit 1
 fi
+
+# turns on wifi
 if [ $1 == "on" ]
 then
 	if [ $(nmcli radio wifi) == "enabled" ]
@@ -41,7 +53,10 @@ then
 		nmcli radio wifi on
 		echo "Turned on WIFI"
 	fi
+	exit 1
 fi
+
+# turns wifi off
 if [ $1 == "off" ]
 then 
 	if [ $(nmcli radio wifi) == "disabled" ]
@@ -51,53 +66,67 @@ then
 		nmcli radio wifi off
 		echo "Turned off WIFI"
 	fi
+	exit 1
 fi
+
+# displays wifi or Hotspot password
 if [ $1 == "pass" ]
 then 
 	if [ $(nmcli radio wifi) == "disabled" ]
-        then
+    then
 		echo "Wifi is already disabled"
-        else
-                nmcli dev wifi show-password
-
-        fi
+    else
+        nmcli dev wifi show-password
+	fi
+	exit 1
 fi
+
+# displays all saved wifi networks
 if [ $1 == "saved" ]
 then
-	arr=()
+	file=()
 	while IFS= read -r line; do
-   		 arr+=( "$line" )
+   		 file+=( "$line" )
 	done < <(cd /etc/NetworkManager/system-connections ;ls)
-	i=0
-	sol=()
-	while IFS= read -r line; do
-                 sol+=( "$line" )
-        done < <(while [ $i -lt  ${#arr[@]} ]
-        do
-                echo  "${arr[$i]}" | cut -d'.' -f 1
-                 i=`expr $i + 1`
-        done)
-	#echo -e "$GREEN" 
-	printf '\e[32m%s\t' "${sol[@]}"
-	echo -e "$ENDCOLOR"
 
+	i=0
+	list=()
+	while IFS= read -r line; do
+                 list+=( "$line" )
+    done < <(while [ $i -lt  ${#file[@]} ]
+			do
+				echo  "${file[$i]}" | cut -d'.' -f 1
+				i=`expr $i + 1`
+    		done) 
+
+	printf $GREEN "${list[@]}"
+	echo -e "$ENDCOLOR"
+	exit 1
 fi
 
+# Turns Hotspot on
 if [ $1 == "hotspot" ]
 then
-	if [ $(nmcli radio wifi) == "disabled" ]
-        then
-                echo "Wifi is turned off!"
-		echo "Turn on wifi"
-		echo "Try \"wifi --help or -h\" for help"
-		exit 1
+	if [ $# == 1 ]
+	then
+		if [ $(nmcli radio wifi) == "disabled" ]
+		then
+			echo "Wifi is turned off!"
+			echo "Turn on wifi"
+			echo "Try \"wifi --help or -h\" for help"
+			exit 1
+		fi
+		timeout 5s echo "Setting up Hotspot"
+		nmcli con up Hotspot 
+		timeout 1s echo "Showing Password" > /dev/null
+		nmcli dev wifi show-password
 	fi
-	timeout 5s echo "Setting up Hotspot"
-	nmcli con up Hotspot 
-	timeout 1s echo "Showing Password" > /dev/null
-	nmcli dev wifi show-password
+	exit 1
 fi
+
+# Forget a wifi network
 if [ $1 == "forget" ]
 then
 	sudo rm /etc/NetworkManager/system-connections/$2.nmconnection
+	exit 1
 fi
