@@ -1,6 +1,6 @@
 # Wifi CLI simplified
 
-```Last Updated on 15-10-2022```
+```Last Modified on 15-10-2022```
 
 ``` Try wifi --help after installation```
 
