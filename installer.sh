@@ -20,7 +20,10 @@ then
 
 	echo "Creating $EXE..."
 	sudo cp ./src/wifi /bin/
+
+	echo "Creating $DIR..."
 	sudo mkdir -p "$DIR"
+
 	sudo cp ./src/help.txt "$DIR"/
 	echo "Installed Succesfully"
 	exit 1
@@ -29,12 +32,16 @@ fi
 if [ $1 == "remove" ]
 then
 	timeout 5s echo "Uninstalling wifi.."
+
 	echo "Removing $EXE"
 	sudo rm /bin/wifi 
+
 	echo "Removing $DIR/help.txt..."
 	sudo rm /usr/share/wifi/help.txt
+
 	echo "Removed $DIR.."
 	sudo rmdir /usr/share/wifi/
+
 	echo "Uninstalled Succesfully"
 	exit 1
 fi
