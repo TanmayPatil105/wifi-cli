@@ -13,15 +13,15 @@ $ git clone https://github.com/TanmayPatil105/Automation-using-shell-scripts.git
 $ cd Automation-using-shell-scripts
 ```
 ```
-$ sudo chmod +x installer.sh
+$ sudo chmod +x install.sh
 ```
 ```
-$ ./installer.sh
+$ ./install.sh
 ```
 ### Uninstallation
 
 ```
-$ ./installer.sh remove
+$ ./install.sh remove
 ```
 <hr/>
 
