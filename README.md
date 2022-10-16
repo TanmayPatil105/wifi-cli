@@ -7,10 +7,10 @@
 ### Installation
 
 ```
-$ git clone https://github.com/TanmayPatil105/Automation-using-shell-scripts.git
+$ https://github.com/TanmayPatil105/wifi-cli.git
 ```
 ```
-$ cd Automation-using-shell-scripts
+$ cd wifi-cli
 ```
 ```
 $ sudo chmod +x install.sh
