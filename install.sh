@@ -28,18 +28,22 @@ then
 	echo "Installed Succesfully"
 fi
 
-if [ $1 == "remove" ]
+if [ $# == 1 ]
 then
-	timeout 5s echo "Uninstalling wifi.."
+	if [ $1 == "remove" ]
+	then 
 
-	echo "Removing $EXE"
-	sudo rm /bin/wifi 
+		timeout 5s echo "Uninstalling wifi.."
 
-	echo "Removing $DIR/help.txt..."
-	sudo rm /usr/share/wifi/help.txt
+		echo "Removing $EXE"
+		sudo rm /bin/wifi 
 
-	echo "Removed $DIR.."
-	sudo rmdir /usr/share/wifi/
+		echo "Removing $DIR/help.txt..."
+		sudo rm /usr/share/wifi/help.txt
 
-	echo "Uninstalled Succesfully"
+		echo "Removed $DIR.."
+		sudo rmdir /usr/share/wifi/
+
+		echo "Uninstalled Succesfully"
+	fi
 fi
