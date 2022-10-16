@@ -36,6 +36,8 @@ $ ./install.sh remove
 ```wifi hotspot```
 ```wifi hotspot off```
 ```wifi forget '$SSID'```
+<hr/>
+Do ⭐ the repo if you find it useful
 
 <hr/>
 
@@ -54,5 +56,3 @@ Instead of the command "nmcli con up hotspot" replace it with the following line
 UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot | cut -d= -f2)
 nmcli con up uuid $UUID
 ```
-<hr/>
-Do ⭐ the repo if you find it useful
