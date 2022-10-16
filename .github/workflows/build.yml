@@ -12,3 +12,4 @@ jobs:
     - uses: actions/checkout@v3
     - name: build
       run: ./install.sh
+      run: ./intall.sh remove
