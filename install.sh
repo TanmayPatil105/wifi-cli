@@ -26,7 +26,6 @@ then
 
 	sudo cp ./src/help.txt "$DIR"/
 	echo "Installed Succesfully"
-	exit 1
 fi
 
 if [ $1 == "remove" ]
@@ -43,5 +42,4 @@ then
 	sudo rmdir /usr/share/wifi/
 
 	echo "Uninstalled Succesfully"
-	exit 1
 fi
