@@ -34,6 +34,7 @@ $ ./install.sh remove
 ```wifi pass```
 ```wifi saved```
 ```wifi hotspot```
+```wifi hotspot off```
 ```wifi forget '$SSID'```
 
 <hr/>
