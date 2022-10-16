@@ -10,14 +10,14 @@ then
 	exit 1
 fi
 
-# displays wifi usage
+# Displays wifi usage
 if [ $1 == "--help" -o $1 == "-h" ]
 then
 	cat /usr/share/wifi/help.txt
 	exit 1
 fi
 
-# displays list of available networks
+# Displays list of available networks
 if [ $1 == "list" ]
 then 
 	if [ $(nmcli radio wifi) == "enabled" ]
@@ -36,14 +36,14 @@ then
 	exit 1
 fi
 
-# connects to given SSID
+#Connects to given SSID
 if [ $1 == "connect" ]
 then
 	nmcli dev wifi connect $2
 	exit 1
 fi
 
-# turns on wifi
+# Turns wifi on
 if [ $1 == "on" ]
 then
 	if [ $(nmcli radio wifi) == "enabled" ]
@@ -56,7 +56,7 @@ then
 	exit 1
 fi
 
-# turns wifi off
+# Turns wifi off
 if [ $1 == "off" ]
 then 
 	if [ $(nmcli radio wifi) == "disabled" ]
@@ -69,7 +69,7 @@ then
 	exit 1
 fi
 
-# displays wifi or Hotspot password
+# Displays wifi or Hotspot password
 if [ $1 == "pass" ]
 then 
 	if [ $(nmcli radio wifi) == "disabled" ]
@@ -81,7 +81,7 @@ then
 	exit 1
 fi
 
-# displays all saved wifi networks
+# Displays all saved wifi networks
 if [ $1 == "saved" ]
 then
 	file=()
