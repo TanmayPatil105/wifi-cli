@@ -7,7 +7,7 @@
 ### Installation
 
 ```
-$ https://github.com/TanmayPatil105/wifi-cli.git
+$ git clone https://github.com/TanmayPatil105/wifi-cli.git
 ```
 ```
 $ cd wifi-cli
