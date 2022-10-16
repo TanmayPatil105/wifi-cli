@@ -11,5 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: build
-      run: ./install.sh
-      run: ./intall.sh remove
+      run: ./install.sh | ./install.sh remove
