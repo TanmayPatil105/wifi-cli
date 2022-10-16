@@ -39,7 +39,7 @@ $ ./installer.sh remove
 <hr/>
 
 ### Support
-Please [open an issue on GitHub](https://github.com/TanmayPatil105/Automation-using-shell-scripts/issues/new) if you'd like to report a bug or request a feature.
+Please [open an issue](https://github.com/TanmayPatil105/Automation-using-shell-scripts/issues/new) if you'd like to report a bug or request a feature.
 
 <hr/>
 
