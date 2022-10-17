@@ -7,7 +7,7 @@ ENDCOLOR="\e[0m"
 # Displays wifi usage
 function command_help() {    
 	cat /usr/share/wifi/help.txt
-	exit 1
+	exit $?
 }
 
 # Displays list of available networks
@@ -25,13 +25,13 @@ function command_list() {
 		echo "Wifi is disabled"
 
 	fi
-	exit 1
+	exit $?
 }
 
 #Connects to given SSID
 function command_connect() {
     nmcli dev wifi connect $2
-	exit 1
+	exit $?
 }
 
 # Turns wifi on
@@ -43,7 +43,7 @@ function command_on() {
 		nmcli radio wifi on
 		echo "Turned ON WIFI"
 	fi
-	exit 1
+	exit $?
 }
 
 # Turns wifi off
@@ -55,7 +55,7 @@ function command_off() {
 		nmcli radio wifi off
 		echo "Turned OFF WIFI"
 	fi
-	exit 1
+	exit $?
 }
 
 # Displays wifi or Hotspot password
@@ -66,7 +66,7 @@ function command_pass() {
     else
         nmcli dev wifi show-password
 	fi
-	exit 1
+	exit $?
 }
 
 # Displays all saved wifi networks
@@ -88,7 +88,7 @@ function command_saved() {
 
 	printf $GREEN "${list[@]}"
 	echo -ne "$ENDCOLOR"
-	exit 1
+	exit $?
 }
 
 # Turns Hotspot on
@@ -100,41 +100,41 @@ function command_hotspot() {
 			echo "Wifi is turned off!"
 			echo "Turn ON wifi"
 			echo "Try \"wifi --help or -h\" for help"
-			exit 1
+			exit $?
 		fi
 		timeout 5s echo "Setting up Hotspot..."
 		nmcli con up Hotspot > /dev/null
 		echo "Hotspot is Turned ON"
 		timeout 3s echo "Showing Password..." > /dev/null
 		nmcli dev wifi show-password
-		exit 1
+		exit $?
 	fi
 	if [ $# == 2 -a $2 == "off" ]
 	then	
 		if [ $(nmcli radio wifi) == "disabled" ]
 		then
 			echo "Hotspot is already disabled"
-			exit 1
+			exit $?
 		fi
 		timeout 3s echo "Turning Hotspot OFF..."
 		nmcli con down Hotspot > /dev/null
 		echo "Hotspot is Turned OFF"
-		exit 1
+		exit $?
 	fi
 
-	exit 1
+	exit $?
 }
 
 # Forget a wifi network
 function command_forget() {
 	sudo rm /etc/NetworkManager/system-connections/$2.nmconnection
-	exit 1
+	exit $?
 }
 
 if [ $# == 0 ]
 then
 	echo "Try wifi --help or -h for more information"
-	exit 1
+	exit $?
 fi
 
 if [ $1 == "--help" -o $1 == "-h" ]
@@ -147,7 +147,7 @@ if [[ $(type -t $command) != "function" ]]; then
     echo "unknown comand: $1"    
     echo "Try wifi --help or -h for more information"    
 
-    exit 1
+    exit $?
 fi
 
 eval "$command $(echo "$@")"
