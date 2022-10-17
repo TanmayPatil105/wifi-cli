@@ -100,7 +100,7 @@ then
     		done) 
 
 	printf $GREEN "${list[@]}"
-	echo -e "$ENDCOLOR"
+	echo -ne "$ENDCOLOR"
 	exit 1
 fi
 
