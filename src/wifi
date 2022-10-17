@@ -4,22 +4,14 @@ COLS=$(tput cols)
 GREEN='\e[32m%s\n'
 ENDCOLOR="\e[0m"
 
-if [ $# == 0 ]
-then
-	echo "Try wifi --help or -h for more information"
-	exit 1
-fi
-
 # Displays wifi usage
-if [ $1 == "--help" -o $1 == "-h" ]
-then
+function command_help() {    
 	cat /usr/share/wifi/help.txt
 	exit 1
-fi
+}
 
 # Displays list of available networks
-if [ $1 == "list" ]
-then 
+function command_list() {
 	if [ $(nmcli radio wifi) == "enabled" ]
 	then
 		if [ `expr $COLS` -lt  110 ]
@@ -34,18 +26,16 @@ then
 
 	fi
 	exit 1
-fi
+}
 
 #Connects to given SSID
-if [ $1 == "connect" ]
-then
-	nmcli dev wifi connect $2
+function command_connect() {
+    nmcli dev wifi connect $2
 	exit 1
-fi
+}
 
 # Turns wifi on
-if [ $1 == "on" ]
-then
+function command_on() {
 	if [ $(nmcli radio wifi) == "enabled" ]
 	then
 		echo "Wifi is already enabled"
@@ -54,12 +44,11 @@ then
 		echo "Turned ON WIFI"
 	fi
 	exit 1
-fi
+}
 
 # Turns wifi off
-if [ $1 == "off" ]
-then 
-	if [ $(nmcli radio wifi) == "disabled" ]
+function command_off() {
+    if [ $(nmcli radio wifi) == "disabled" ]
 	then 
 		echo "Wifi is already disabled"
 	else 
@@ -67,23 +56,21 @@ then
 		echo "Turned OFF WIFI"
 	fi
 	exit 1
-fi
+}
 
 # Displays wifi or Hotspot password
-if [ $1 == "pass" ]
-then 
-	if [ $(nmcli radio wifi) == "disabled" ]
+function command_pass() {
+    if [ $(nmcli radio wifi) == "disabled" ]
     then
 		echo "Wifi is already disabled"
     else
         nmcli dev wifi show-password
 	fi
 	exit 1
-fi
+}
 
 # Displays all saved wifi networks
-if [ $1 == "saved" ]
-then
+function command_saved() {
 	file=()
 	while IFS= read -r line; do
    		 file+=( "$line" )
@@ -102,11 +89,10 @@ then
 	printf $GREEN "${list[@]}"
 	echo -ne "$ENDCOLOR"
 	exit 1
-fi
+}
 
 # Turns Hotspot on
-if [ $1 == "hotspot" ]
-then
+function command_hotspot() {
 	if [ $# == 1 ]
 	then
 		if [ $(nmcli radio wifi) == "disabled" ]
@@ -137,13 +123,31 @@ then
 	fi
 
 	exit 1
-fi
+}
 
 # Forget a wifi network
-if [ $1 == "forget" ]
-then
+function command_forget() {
 	sudo rm /etc/NetworkManager/system-connections/$2.nmconnection
+	exit 1
+}
+
+if [ $# == 0 ]
+then
+	echo "Try wifi --help or -h for more information"
 	exit 1
 fi
 
-echo "Try wifi --help or -h for more information"
+if [ $1 == "--help" -o $1 == "-h" ]
+then
+    command_help # noreturn
+fi
+
+command="command_$1"
+if [[ $(type -t $command) != "function" ]]; then
+    echo "unknown comand: $1"    
+    echo "Try wifi --help or -h for more information"    
+
+    exit 1
+fi
+
+eval "$command $(echo "$@")"
