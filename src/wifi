@@ -145,9 +145,7 @@ fi
 command="command_$1"
 if [[ $(type -t $command) != "function" ]]; then
     echo -e "wifi: '$1' is not a command\n"    
-
     echo "Run 'wifi --help' or 'wifi -h' to see a list of wifi commands"    
-
     exit $?
 fi
 
