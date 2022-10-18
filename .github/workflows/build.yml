@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: build
+    - name: install
       run: ./install.sh
-    - name: remove
+    - name: uninstall
       run: ./install.sh remove
