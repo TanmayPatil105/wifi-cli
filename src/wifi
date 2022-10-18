@@ -144,7 +144,7 @@ fi
 
 command="command_$1"
 if [[ $(type -t $command) != "function" ]]; then
-    echo "unknown comand: $1"    
+    echo "wifi: '$1' is not a command"    
     echo "Try wifi --help or -h for more information"    
 
     exit $?
