@@ -1,7 +1,5 @@
 # Wifi CLI simplified
 
-```Last Modified on 15-10-2022```
-
 ``` Try wifi --help after installation```
 
 ### Installation
@@ -24,6 +22,29 @@ $ ./install.sh
 $ ./install.sh remove
 ```
 <hr/>
+
+### Dependencies
+
+Install following packages before using wifi-cli
+
+- **xterm**
+
+```
+sudo apt install xterm
+```
+```
+sudo pacman -S xterm
+```
+- **nmcli**
+
+```
+sudo apt install network-manager
+```
+```
+sudo pacman -S networkmanager
+```
+<hr/>
+
 
 ### Usage 
 
