@@ -46,6 +46,11 @@ Please [open an issue](https://github.com/TanmayPatil105/Automation-using-shell-
 
 <hr/>
 
+### Contributing
+Follow [guidelines](https://github.com/TanmayPatil105/wifi-cli/edit/main/CONTRIBUTING.md) before contributing.
+
+<hr/>
+
 ### Additional
 Try changing the "./src/wifi" file using following steps if hotspot option doesn't work
 
