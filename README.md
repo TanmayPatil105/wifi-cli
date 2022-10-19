@@ -63,12 +63,12 @@ Do ⭐ the repo if you find it useful
 <hr/>
 
 ### Support
-Please [open an issue](https://github.com/TanmayPatil105/Automation-using-shell-scripts/issues/new) if you'd like to report a bug or request a feature.
+Please [open an issue](https://github.com/TanmayPatil105/wifi-cli/issues/new) if you'd like to report a bug or request a feature.
 
 <hr/>
 
 ### Contributing
-Follow [guidelines](https://github.com/TanmayPatil105/wifi-cli/edit/main/CONTRIBUTING.md) before contributing.
+Follow [guidelines](https://github.com/TanmayPatil105/wifi-cli/blob/main/CONTRIBUTING.md) before contributing.
 
 <hr/>
 
