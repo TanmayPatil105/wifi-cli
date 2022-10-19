@@ -35,4 +35,4 @@ for msg in "${msgs[@]}"; do
     echo " - ${msg}"
 done
 echo -e "\nConsider following the instructions in README.md"
-exit 1
+exit 0
