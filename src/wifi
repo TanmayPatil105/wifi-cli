@@ -1,8 +1,11 @@
 #!/bin/bash
 
 COLS=$(tput cols)
+RED='\e[31m'
 GREEN='\e[32m'
+CYAN='\e[36m'
 ENDCOLOR="\e[0m"
+IFS=$'\n'
 
 # Displays wifi usage
 function command_help() {    
@@ -19,7 +22,25 @@ function command_list() {
 			resize -s 24 110 > /dev/null
 		fi
 		nmcli dev wifi list > /tmp/wifi.txt
-		cat /tmp/wifi.txt
+
+		i=1
+		for line in $(cat /tmp/wifi.txt )
+		do  
+			c=$(echo "${line}" | awk '{print $1}')
+			if [ "$c" == "*" ]
+			then
+				echo -ne $GREEN
+				echo  -e "${line}" $ENDCOLOR
+			elif    [ $i == 1 ]
+			then
+				echo "${line}"
+			else
+				echo -ne $CYAN
+				echo -e "${line}"$ENDCOLOR
+			fi
+			((i++))
+		done
+
 		rm /tmp/wifi.txt
 	else 
 		echo "Wifi is disabled"
