@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -o nounset
+
+#
+# Checking for dependencies...
+#
+msgs=()
+echo -n "checking for xterm... "
+if which xterm >/dev/null; then
+    echo "ok"
+else   
+    echo "no"
+    msgs+=("xterm not found")
+fi
+
+echo -n "checking for nmcli... "
+if which nmcli >/dev/null; then
+    echo "ok"
+else    
+    echo "no"
+    msgs+=("nmcli not found")
+fi
+
+#
+# Report the results...
+#
+if [[ ${#msgs[*]} == 0 ]]; then    
+    echo "Passed the All Dependecy Check."    
+    exit 0
+fi
+
+echo "** Ooops, one of many bad things happened:"
+for msg in "${msgs[@]}"; do
+    echo " - ${msg}"
+done
+echo -e "\nConsider following the instructions in README.md"
+exit 1
