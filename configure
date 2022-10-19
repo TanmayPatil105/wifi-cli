@@ -1,5 +1,10 @@
 #!/bin/bash
 
+RED='\e[31m'
+GREEN='\e[32m'
+CYAN='\e[36m'
+ENDCOLOR="\e[0m"
+
 set -o nounset
 
 #
@@ -8,17 +13,17 @@ set -o nounset
 msgs=()
 echo -n "checking for xterm... "
 if which xterm >/dev/null; then
-    echo "ok"
+    echo "found"
 else   
-    echo "no"
+    echo "not found"
     msgs+=("xterm not found")
 fi
 
 echo -n "checking for nmcli... "
 if which nmcli >/dev/null; then
-    echo "ok"
+    echo "found"
 else    
-    echo "no"
+    echo "not found"
     msgs+=("nmcli not found")
 fi
 
@@ -26,13 +31,14 @@ fi
 # Report the results...
 #
 if [[ ${#msgs[*]} == 0 ]]; then    
-    echo "Passed the All Dependecy Check."    
+    echo -e $GREEN "\nPassed all the Dependecy checks" $ENDCOLOR
     exit 0
 fi
 
-echo "** Ooops, one of many bad things happened:"
+echo -e $GREEN "\n** Ooops, one of many bad things happened:" $ENDCOLOR
 for msg in "${msgs[@]}"; do
-    echo " - ${msg}"
+    echo -e $RED " - ${msg}" $ENDCOLOR
 done
-echo -e "\nConsider following the instructions in README.md"
+echo -ne $GREEN "\nFollow the link to install the dependencies:" $ENDCOLOR
+echo -e "https://github.com/TanmayPatil105/wifi-cli#dependencies"
 exit 1
