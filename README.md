@@ -11,7 +11,10 @@ $ git clone https://github.com/TanmayPatil105/wifi-cli.git
 $ cd wifi-cli
 ```
 ```
-$ sudo chmod +x install.sh
+$ sudo chmod +x install.sh configure
+```
+```
+$ ./configure
 ```
 ```
 $ ./install.sh
