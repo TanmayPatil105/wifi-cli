@@ -107,8 +107,7 @@ function command_saved() {
 				i=`expr $i + 1`
     		done) 
 
-	printf $GREEN "${list[@]}"
-	echo -ne "$ENDCOLOR"
+	printf "${GREEN}%s${ENDCOLOR}\n" "${list[@]}"
 	exit $?
 }
 
