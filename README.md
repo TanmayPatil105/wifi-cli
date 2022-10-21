@@ -61,13 +61,11 @@ sudo pacman -S networkmanager
 ```wifi hotspot off```
 ```wifi forget '$SSID'```
 <hr/>
-Do ⭐ the repo if you find it useful
-
-<hr/>
 
 ### Support
 Please [open an issue](https://github.com/TanmayPatil105/wifi-cli/issues/new) if you'd like to report a bug or request a feature.
 
+Do ⭐ the repo if you find it useful
 <hr/>
 
 ### Contributing
