@@ -51,7 +51,8 @@ function command_list() {
 
 #Connects to given SSID
 function command_connect() {
-    nmcli dev wifi connect $2
+    shift
+    eval "nmcli dev wifi connect '$@'"
 	exit $?
 }
 
