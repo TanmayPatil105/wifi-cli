@@ -1,16 +1,17 @@
-Usage: wifi [OPTION] {Arguments}
+wifi is a tool for managing WIFI-Network through command line
 
-Get status of Wi-Fi or turn it on/off.
+Usage: 
+        
+        wifi <command> [arguments]
 
-wifi on		Turns wifi on
-wifi off	Turns wifi off
-wifi list	Lists all available wifi
-wifi connect 	Connect to all available wifi  networks
-"SSID"
-wifi pass	To share password of connected network
-wifi saved 	To display all the saved networks
-wifi hotspot 	To turn on wifi hotspot
-wifi hotspot    To turn off wifi hotspot
-off 
-wifi forget	To forget a Network
-"SSID"
+The commands are:
+
+        on              turn wifi on
+        off             turn wifi off
+        list            list available wifi networks
+        connect $SSID   connect to a wifi network
+        pass            get password of current network
+        saved           list all saved networks
+        hotspot         to turn on wifi hotspot
+        hotspot off     to turn off wifi hotspot
+        forget $SSID    to forget a network
