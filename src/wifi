@@ -149,8 +149,8 @@ function command_hotspot() {
 # Forget a wifi network
 function command_forget() {
     shift
-	eval "sudo rm '/etc/NetworkManager/system-connections/$@.nmconnection'"
-	exit $?
+    eval "sudo rm '/etc/NetworkManager/system-connections/$@.nmconnection'"
+    exit $?
 }
 
 if [ $# == 0 ]
