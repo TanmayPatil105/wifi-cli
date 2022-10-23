@@ -171,4 +171,4 @@ if [[ $(type -t $command) != "function" ]]; then
     exit $?
 fi
 
-eval "$command $(echo "$@")"
+"$command" "$@"
