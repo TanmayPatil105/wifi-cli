@@ -15,3 +15,4 @@ The commands are:
         hotspot         to turn on wifi hotspot
         hotspot off     to turn off wifi hotspot
         forget $SSID    to forget a network
+        --help, -h      to list all available commands
