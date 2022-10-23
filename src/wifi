@@ -52,8 +52,13 @@ function command_list() {
 #Connects to given SSID
 function command_connect() {
     shift
-    eval "nmcli dev wifi connect '$@'"
-	exit $?
+    if [[ "$(nmcli -g name con show --active)" == "$@" ]] 
+    then 
+           echo "Wifi is already connected with this network ssid." 
+    else
+           eval "nmcli dev wifi connect '$@'"
+    fi
+    exit $?
 }
 
 # Turns wifi on
