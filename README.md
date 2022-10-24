@@ -52,6 +52,7 @@ sudo pacman -S networkmanager
 ```
 sudo docker build -t wifi-cli .
 ```
+<hr/>
 
 ### Usage 
 
