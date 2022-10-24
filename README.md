@@ -48,6 +48,10 @@ sudo pacman -S networkmanager
 ```
 <hr/>
 
+### Build on Docker
+```
+sudo docker build -t wifi-cli .
+```
 
 ### Usage 
 
