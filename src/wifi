@@ -52,7 +52,16 @@ function command_list() {
 #Connects to given SSID
 function command_connect() {
     shift
-    if [[ "$(nmcli -g name con show --active)" == "$@" ]] 
+    found=0
+    for ssid in `nmcli -g name con show --active` 
+    do 
+         if [[ "$ssid" == "$@" ]]  
+         then
+         	found=1
+                break
+         fi
+    done
+    if [[ "$found" -eq 1 ]] 
     then 
            echo "Wifi is already connected with this network ssid." 
     else
