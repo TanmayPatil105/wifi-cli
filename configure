@@ -41,4 +41,4 @@ for msg in "${msgs[@]}"; do
 done
 echo -ne $GREEN "\nFollow the link to install the dependencies:" $ENDCOLOR
 echo -e "https://github.com/TanmayPatil105/wifi-cli#dependencies"
-exit 1
+exit $?
