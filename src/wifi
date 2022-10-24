@@ -148,8 +148,9 @@ function command_hotspot() {
 
 # Forget a wifi network
 function command_forget() {
-	sudo rm /etc/NetworkManager/system-connections/$2.nmconnection
-	exit $?
+    shift
+    eval "sudo rm '/etc/NetworkManager/system-connections/$@.nmconnection'"
+    exit $?
 }
 
 if [ $# == 0 ]
@@ -170,4 +171,4 @@ if [[ $(type -t $command) != "function" ]]; then
     exit $?
 fi
 
-eval "$command $(echo "$@")"
+"$command" "$@"
