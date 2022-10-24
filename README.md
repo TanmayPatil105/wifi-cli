@@ -46,7 +46,6 @@ sudo apt install network-manager
 ```
 sudo pacman -S networkmanager
 ```
-<hr/>
 
 ### Build on Docker
 ```
