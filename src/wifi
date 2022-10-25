@@ -63,7 +63,8 @@ function command_connect() {
     done
     if [[ "$found" -eq 1 ]] 
     then 
-           echo "Wifi is already connected with this network ssid." 
+           echo "Wifi already connected to the same Network" 
+		   echo -e "\nTry turning wifi off to$GREEN REFRESH$ENDCOLOR the Network"
     else
            eval "nmcli dev wifi connect '$@'"
     fi
