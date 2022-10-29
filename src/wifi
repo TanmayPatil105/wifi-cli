@@ -7,11 +7,6 @@ CYAN='\e[36m'
 ENDCOLOR="\e[0m"
 IFS=$'\n'
 
-# Displays wifi usage
-function command_help() {    
-	cat /usr/share/wifi/help.txt
-	exit $?
-}
 
 # Displays list of available networks
 function command_list() {
@@ -176,7 +171,8 @@ fi
 
 if [ $1 == "--help" -o $1 == "-h" ]
 then
-    command_help # noreturn
+    cat /usr/share/wifi/help.txt
+	exit $?
 fi
 
 command="command_$1"
