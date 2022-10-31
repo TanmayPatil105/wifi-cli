@@ -5,7 +5,6 @@ EXE="/bin/wifi"
 
 if [ $# == 0 ]
 then
-	chmod +x ./src/wifi
 	if [ -f "$EXE" ]
 	then
 		sudo rm /bin/wifi
