@@ -61,7 +61,9 @@ function command_connect() {
            echo "Wifi already connected to the same Network" 
 		   echo -e "\nTry turning wifi off to$GREEN REFRESH$ENDCOLOR the Network"
     else
-           eval "nmcli dev wifi connect '$@'"
+		   echo "Connecting..."
+           eval "nmcli dev wifi connect '$@'" >> /dev/null
+		   echo -e "Successfully connected to $GREEN'$@'$ENDCOLOR "
     fi
     exit $?
 }
