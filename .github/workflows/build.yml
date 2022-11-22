@@ -14,7 +14,7 @@ jobs:
         sudo apt update
         sudo apt install xterm network-manager
     - name: Change user to root
-      run: sudo su -c "echo '$EUID'" 
+      run: sudo su - root -c "echo '$EUID'" 
     - name: Check dependencies
       run: ./configure
     - name: install
