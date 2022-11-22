@@ -7,13 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    options: --user root
     steps:
     - uses: actions/checkout@v3
     - name: Install dependencies
       run: |
         sudo apt update
         sudo apt install xterm network-manager
+    -name: Check Workflows
+      run: echo "$EUID"
     - name: Check dependencies
       run: ./configure
     - name: install
