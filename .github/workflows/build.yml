@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    options: --user root
     steps:
     - uses: actions/checkout@v3
     - name: Install dependencies
