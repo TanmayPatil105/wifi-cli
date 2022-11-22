@@ -14,8 +14,8 @@ jobs:
       run: |
         sudo apt update
         sudo apt install xterm network-manager
-    -name: Check Workflows
-      run: echo "$EUID"
+    - name: Check workflows
+      run: echo "$USER"
     - name: Check dependencies
       run: ./configure
     - name: install
