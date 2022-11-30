@@ -4,24 +4,24 @@
 
 ### Installation
 
-```
+```console
 $ git clone https://github.com/TanmayPatil105/wifi-cli.git
 ```
-```
+```console
 $ cd wifi-cli
 ```
-```
+```console
 $ sudo chmod +x install.sh configure
 ```
-```
+```console
 $ ./configure
 ```
-```
+```console
 $ ./install.sh
 ```
 ### Uninstallation
 
-```
+```console
 $ ./install.sh remove
 ```
 <hr/>
@@ -32,24 +32,24 @@ Install following packages before using wifi-cli
 
 - **xterm**
 
+```console
+$ sudo apt install xterm
 ```
-sudo apt install xterm
-```
-```
-sudo pacman -S xterm
+```console
+$ sudo pacman -S xterm
 ```
 - **nmcli**
 
+```console
+$ sudo apt install network-manager
 ```
-sudo apt install network-manager
-```
-```
-sudo pacman -S networkmanager
+```console
+$ sudo pacman -S networkmanager
 ```
 
 ### Build on Docker
-```
-sudo docker build -t wifi-cli .
+```console
+$ sudo docker build -t wifi-cli .
 ```
 <hr/>
 
@@ -78,12 +78,12 @@ Follow [guidelines](https://github.com/TanmayPatil105/wifi-cli/blob/main/CONTRIB
 <hr/>
 
 ### Additional
-Try changing the "./src/wifi" file using following steps if hotspot option doesn't work
+Try changing the `/src/wifi` file using following steps if hotspot option doesn't work
 
 ```
 Instead of the command "nmcli con up hotspot" replace it with the following lines
 ```
-~~~
+~~~console
 UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot | cut -d= -f2)
 nmcli con up uuid $UUID
 ~~~
