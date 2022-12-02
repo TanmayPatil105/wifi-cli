@@ -131,7 +131,7 @@ function command_hotspot() {
 		then
 			echo "Wifi is turned off!"
 			echo "Turn ON wifi"
-			echo "Try \"wifi --help or -h\" for help"
+			echo "Try \"wifi --help or wifi -h\" for help"
 			exit $?
 		fi
 		timeout 5s echo "Setting up Hotspot..."
@@ -159,6 +159,13 @@ function command_hotspot() {
 
 #Reconnect to connected network
 function command_recon() {
+	if [ $(nmcli radio wifi) == "disabled" ]
+	then
+		echo "Wifi is turned off!"
+		echo "Turn on Wi-Fi"
+		echo "Try \"wifi --help or wifi -h\" for more information"
+		exit $?
+	fi
 	SSID=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -b 5-)
 	echo -e "Saving SSID..."
 	timeout 3s echo -e "Reconnecting to $GREEN'$SSID'$ENDCOLOR..."
@@ -175,7 +182,7 @@ function command_forget() {
 
 if [ $# == 0 ]
 then
-	echo "Try wifi --help or -h for more information"
+	echo "Try wifi --help or wifi -h for more information"
 	exit $?
 fi
 
