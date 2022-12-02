@@ -16,6 +16,7 @@ function command_list() {
 		then
 			resize -s 24 110 > /dev/null
 		fi
+
 		nmcli dev wifi list > /tmp/wifi.txt
 
 		i=1
@@ -30,17 +31,17 @@ function command_list() {
 			then
 				echo -ne $RED
 				echo -e "${line}" $ENDCOLOR
+				i=2
 			else
 				echo -ne $CYAN
 				echo -e "${line}"$ENDCOLOR
 			fi
-			((i++))
 		done
 
 		rm /tmp/wifi.txt
+
 	else 
 		echo "Wifi is disabled"
-
 	fi
 	exit $?
 }
@@ -54,16 +55,16 @@ function command_connect() {
          if [[ "$ssid" == "$@" ]]  
          then
          	found=1
-                break
+            break
          fi
     done
     if [[ "$found" -eq 1 ]] 
     then 
-           echo "Wifi already connected to the same Network" 
-		   echo -e "\nTry turning wifi off to$GREEN REFRESH$ENDCOLOR the Network"
+		echo "Wifi already connected to the same Network" 
+		echo -e "\nTry turning wifi off to$GREEN REFRESH$ENDCOLOR the Network"
     else
-		   echo "Connecting..."
-           ! eval "nmcli dev wifi connect '$@'" >> /dev/null || echo -e "Successfully connected to $GREEN'$@'$ENDCOLOR "
+		echo "Connecting..."
+		! eval "nmcli dev wifi connect '$@'" >> /dev/null || echo -e "Successfully connected to $GREEN'$@'$ENDCOLOR "
     fi
     exit $?
 }
