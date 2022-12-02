@@ -167,6 +167,12 @@ function command_recon() {
 		exit $?
 	fi
 	SSID=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -b 5-)
+	if [ -z "$SSID" ]
+	then
+		echo -e "Wi-Fi$RED NOT$ENDCOLOR connected to Network"
+		echo -e "Try $GREEN\"wifi connect SSID\"$ENDCOLOR to Connect to a Network"
+		exit 1
+	fi
 	echo -e "Saving SSID..."
 	timeout 3s echo -e "Reconnecting to $GREEN'$SSID'$ENDCOLOR..."
 	nmcli dev wifi connect $SSID >> /dev/null && echo -e "Successfully re-connected to $GREEN'$SSID'$ENDCOLOR!"
