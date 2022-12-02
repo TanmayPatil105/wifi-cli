@@ -157,6 +157,15 @@ function command_hotspot() {
 	exit $?
 }
 
+#Reconnect to connected network
+function command_recon() {
+	SSID=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -b 5-)
+	echo -e "Saving SSID..."
+	timeout 3s echo -e "Reconnecting to $GREEN'$SSID'$ENDCOLOR..."
+	nmcli dev wifi connect $SSID >> /dev/null && echo -e "Successfully re-connected to $GREEN'$SSID'$ENDCOLOR!"
+	exit $?
+}
+
 # Forget a wifi network
 function command_forget() {
     shift
@@ -180,7 +189,7 @@ command="command_$1"
 if [[ $(type -t $command) != "function" ]]; then
     echo -e "wifi: '$1' is not a command\n"    
     echo "Run 'wifi --help' or 'wifi -h' to see a list of wifi commands"    
-    exit $?
+    exit 1
 fi
 
 "$command" "$@"
