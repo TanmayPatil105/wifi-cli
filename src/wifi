@@ -28,7 +28,8 @@ function command_list() {
 				echo  -e "${line}" $ENDCOLOR
 			elif    [ $i == 1 ]
 			then
-				echo "${line}"
+				echo -ne $RED
+				echo -e "${line}" $ENDCOLOR
 			else
 				echo -ne $CYAN
 				echo -e "${line}"$ENDCOLOR
