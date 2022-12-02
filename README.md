@@ -61,6 +61,7 @@ $ sudo docker build -t wifi-cli .
 ```wifi connect '$SSID'```
 ```wifi pass```
 ```wifi saved```
+
 ```wifi hotspot```
 ```wifi hotspot off```
 ```wifi forget '$SSID'```
