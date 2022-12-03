@@ -93,6 +93,16 @@ function command_off() {
 	exit $?
 }
 
+# Returns wifi status
+function command_status() {
+	if [ $(nmcli radio wifi) == "disabled" ]
+	then 
+		echo "Wifi is DISABLED"
+	else 
+		echo "Wifi is ENABLED"
+	fi
+}
+
 # Displays wifi or Hotspot password
 function command_pass() {
     if [ $(nmcli radio wifi) == "disabled" ]

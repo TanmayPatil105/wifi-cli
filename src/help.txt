@@ -8,6 +8,7 @@ The commands are:
 
         on              turn wifi on
         off             turn wifi off
+        status          returns wifi status (on/off)
         list            list available wifi networks
         connect $SSID   connect to a wifi network
         pass            get password of current network
