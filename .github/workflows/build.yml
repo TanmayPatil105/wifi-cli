@@ -27,9 +27,9 @@ jobs:
       run: |
         sudo apt update
         sudo apt install xterm network-manager
-    -name: Check dependencies
+    - name: Check dependencies
       run: ./configure
-    -name: Install using curl
+    - name: Install using curl
       run: ./curl.sh
 
         
