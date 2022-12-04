@@ -23,9 +23,12 @@ then
 
 		timeout 5s echo "Uninstalling wifi.."
 
-		echo "Removing $EXE"
-		sudo rm /bin/wifi 
+		if [ -f "$EXE" ]
+		then
+			echo "Removing $EXE.."
+			sudo rm /bin/wifi
+		fi
 
-		echo "Uninstalled Succesfully"
+		echo "Uninstalled Succesfully!"
 	fi
 fi
