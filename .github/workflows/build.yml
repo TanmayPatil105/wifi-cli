@@ -28,4 +28,4 @@ jobs:
         sudo apt update
         sudo apt install xterm network-manager
     - name: Install using curl
-      run: ./curl.sh
+      run: curl -s https://raw.githubusercontent.com/TanmayPatil105/wifi-cli/main/curl.sh | sh
