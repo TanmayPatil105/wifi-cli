@@ -28,6 +28,7 @@ function fail_clean(){
     fi
     echo "Couldn't Install wifi!!"
     exit 1
+
 }
 
 function success_clean(){
@@ -41,6 +42,7 @@ function success_clean(){
     then
         rm ./configure
     fi
+
 }
 
 function check_dependency(){
@@ -52,6 +54,7 @@ function check_dependency(){
         fail_clean
         exit 1
     fi
+    
 }
 
 function download(){
