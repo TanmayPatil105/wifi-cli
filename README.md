@@ -19,6 +19,13 @@ $ ./configure
 ```console
 $ ./install.sh
 ```
+
+### Install using curl
+
+```console
+$ curl -s https://raw.githubusercontent.com/TanmayPatil105/wifi-cli/main/curl.sh | sh
+```
+
 ### Uninstallation
 
 ```console
