@@ -19,3 +19,17 @@ jobs:
       run: ./install.sh
     - name: uninstall
       run: ./install.sh remove
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install xterm network-manager
+    -name: Check dependencies
+      run: ./configure
+    -name: Install using curl
+      run: ./curl.sh
+
+        
