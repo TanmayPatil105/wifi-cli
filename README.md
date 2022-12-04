@@ -25,6 +25,9 @@ $ ./install.sh
 ```console
 $ curl -s https://raw.githubusercontent.com/TanmayPatil105/wifi-cli/main/curl.sh | sh
 ```
+```console
+$ sudo chmod +x /bin/wifi
+```
 
 ### Uninstallation
 
