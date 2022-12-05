@@ -1,17 +1,17 @@
 #!/bin/bash
 
-EXE="/bin/wifi"
+EXE="/usr/local/bin/wifi"
 
 if [ $# == 0 ]
 then
 	if [ -f "$EXE" ]
 	then
-		sudo rm /bin/wifi
+		sudo rm /usr/local/bin/wifi
 		echo "Removing $EXE.."
 	fi
 
 	echo "Creating $EXE..."
-	sudo cp ./src/wifi /bin/
+	sudo cp ./src/wifi /usr/local/bin/
 
 	echo "Installed Succesfully"
 fi
@@ -26,7 +26,7 @@ then
 		if [ -f "$EXE" ]
 		then
 			echo "Removing $EXE.."
-			sudo rm /bin/wifi
+			sudo rm /usr/local/bin/wifi
 		fi
 
 		echo "Uninstalled Succesfully!"
