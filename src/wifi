@@ -112,6 +112,7 @@ function command_pass() {
 		echo "Wifi is already disabled"
     else
         nmcli dev wifi show-password
+
 	fi
 	exit 
 }
@@ -209,6 +210,7 @@ function command_recon() {
 # Forget a wifi network
 function command_forget() {
     shift
+	
 	echo -e "Forgetting $GREEN$@$ENDCOLOR..."
     eval "sudo rm '/etc/NetworkManager/system-connections/$@.nmconnection'"
     exit 0
