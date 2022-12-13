@@ -169,6 +169,19 @@ function command_hotspot() {
 	exit $?
 }
 
+#Test Network speed
+function command_test() {
+	if [ $(nmcli radio wifi) == "disabled" ]
+	then
+		echo "Wifi is turned off!"
+		echo "Turn on Wi-Fi"
+		echo "Try \"wifi --help or wifi -h\" for more information"
+		exit $?
+	fi
+	python3 <(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)
+	exit 0
+}
+
 #Reconnect to connected network
 function command_recon() {
 	if [ $(nmcli radio wifi) == "disabled" ]
@@ -226,6 +239,7 @@ then
 			>		hotspot off     to turn off wifi hotspot
 			>		forget $SSID    to forget a network
 			>		recon           to reconnect to connected network
+			> 		test			to test Network speed
 			>		--help, -h      to list all available commands
 
 			EOMD
