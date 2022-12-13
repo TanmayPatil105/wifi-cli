@@ -78,7 +78,7 @@ $ sudo docker build -t wifi-cli .
 ```wifi hotspot off```
 ```wifi forget '$SSID'```
 ```wifi recon```
-```wifi test``` using speedtest-cli
+```wifi test```
 <hr/>
 
 ### Support
@@ -91,6 +91,9 @@ Do ⭐ the repo if you find it useful
 Follow [guidelines](https://github.com/TanmayPatil105/wifi-cli/blob/main/CONTRIBUTING.md) before contributing.
 
 <hr/>
+
+### Uses
+`Uses speedtest-cli for checking network speed`
 
 ### Additional
 Try changing the `/src/wifi` file using following steps if hotspot option doesn't work
