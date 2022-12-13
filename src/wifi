@@ -209,6 +209,7 @@ function command_recon() {
 # Forget a wifi network
 function command_forget() {
     shift
+	echo -e "Forgetting $GREEN$@$ENDCOLOR..."
     eval "sudo rm '/etc/NetworkManager/system-connections/$@.nmconnection'"
     exit 0
 }
