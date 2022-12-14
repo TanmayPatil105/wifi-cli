@@ -12,7 +12,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install xterm 
+        sudo apt install xterm network-manager
     - name: Check dependencies
       run: ./configure
     - name: install
