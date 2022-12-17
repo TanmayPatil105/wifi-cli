@@ -10,7 +10,7 @@ IFS=$'\n'
 
 # Displays list of available networks
 function command_list() {
-	if [ $(nmcli radio wifi) == "enabled" ]
+	if [ "$(nmcli radio wifi)" == "enabled" ]
 	then
 		if [ `expr $COLS` -lt  110 ]
 		then
@@ -72,7 +72,7 @@ function command_connect() {
 
 # Turns wifi on
 function command_on() {
-	if [ $(nmcli radio wifi) == "enabled" ]
+	if [ "$(nmcli radio wifi)" == "enabled" ]
 	then
 		echo "Wifi is already enabled"
 	else 
@@ -84,7 +84,7 @@ function command_on() {
 
 # Turns wifi off
 function command_off() {
-    if [ $(nmcli radio wifi) == "disabled" ]
+    if [ "$(nmcli radio wifi)" == "disabled" ]
 	then 
 		echo "Wifi is already disabled"
 	else 
@@ -96,7 +96,7 @@ function command_off() {
 
 # Returns wifi status
 function command_status() {
-	if [ $(nmcli radio wifi) == "disabled" ]
+	if [ "$(nmcli radio wifi)" == "disabled" ]
 	then 
 		echo "Wifi is DISABLED"
 	else 
@@ -107,7 +107,7 @@ function command_status() {
 
 # Displays wifi or Hotspot password
 function command_pass() {
-    if [ $(nmcli radio wifi) == "disabled" ]
+    if [ "$(nmcli radio wifi)" == "disabled" ]
     then
 		echo "Wifi is already disabled"
     else
@@ -142,7 +142,7 @@ function command_saved() {
 function command_hotspot() {
 	if [ $# == 1 ]
 	then
-		if [ $(nmcli radio wifi) == "disabled" ]
+		if [ "$(nmcli radio wifi)" == "disabled" ]
 		then
 			echo "Wifi is turned off!"
 			echo "Turn ON wifi"
@@ -158,7 +158,7 @@ function command_hotspot() {
 	fi
 	if [ $# == 2 -a $2 == "off" ]
 	then	
-		if [ $(nmcli radio wifi) == "disabled" ]
+		if [ "$(nmcli radio wifi)" == "disabled" ]
 		then
 			echo "Hotspot is already disabled"
 			exit 1
@@ -174,7 +174,7 @@ function command_hotspot() {
 
 #Test Network speed
 function command_test() {
-	if [ $(nmcli radio wifi) == "disabled" ]
+	if [ "$(nmcli radio wifi)" == "disabled" ]
 	then
 		echo "Wifi is turned off!"
 		echo "Turn on Wi-Fi"
@@ -187,7 +187,7 @@ function command_test() {
 
 #Reconnect to connected network
 function command_recon() {
-	if [ $(nmcli radio wifi) == "disabled" ]
+	if [ "$(nmcli radio wifi)" == "disabled" ]
 	then
 		echo "Wifi is turned off!"
 		echo "Turn on Wi-Fi"
@@ -210,7 +210,6 @@ function command_recon() {
 # Forget a wifi network
 function command_forget() {
     shift
-	
 	echo -e "Forgetting $GREEN$@$ENDCOLOR..."
     eval "sudo rm '/etc/NetworkManager/system-connections/$@.nmconnection'"
     exit 0
