@@ -173,7 +173,7 @@ function command_hotspot() {
 }
 
 #Test Network speed
-function command_test() {
+function command_speed() {
 	if [ "$(nmcli radio wifi)" == "disabled" ]
 	then
 		echo "Wifi is turned off!"
@@ -243,7 +243,7 @@ then
 			>		hotspot off     to turn off wifi hotspot
 			>		forget $SSID    	to forget a network
 			>		recon           to reconnect to connected network
-			>		test 		to test Network speed
+			>		speed 		to test Network speed
 			>		--help, -h      to list all available commands
 
 			EOMD
