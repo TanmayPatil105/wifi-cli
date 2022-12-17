@@ -78,7 +78,7 @@ $ sudo docker build -t wifi-cli .
 ```wifi hotspot off```
 ```wifi forget '$SSID'```
 ```wifi recon```
-```wifi test```
+```wifi speed```
 <hr/>
 
 ### Support
