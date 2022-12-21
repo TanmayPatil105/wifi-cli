@@ -4,6 +4,16 @@
 
 ## Installation
 
+### Install using brew
+
+```
+$ brew tap TanmayPatil105/tap
+```
+
+```
+$ brew install wifi-cli
+```
+
 ### Install using curl
 
 ```console
