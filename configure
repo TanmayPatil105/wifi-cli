@@ -7,6 +7,14 @@ ENDCOLOR="\e[0m"
 
 set -o nounset
 
+if [[ -t 1 ]]
+then
+  tty_escape() { printf "\033[%sm" "$1"; }
+else
+  tty_escape() { :; }
+fi
+UNDERLINE="$(tty_escape "4;39")"
+
 #
 # Checking for dependencies...
 #
@@ -40,5 +48,5 @@ for msg in "${msgs[@]}"; do
     echo -e $RED " - ${msg}" $ENDCOLOR
 done
 echo -ne $GREEN "\nFollow the link to install the dependencies:" $ENDCOLOR
-echo -e "https://github.com/TanmayPatil105/wifi-cli#dependencies\n" 
+echo -e $UNDERLINE"https://github.com/TanmayPatil105/wifi-cli#dependencies\n" $ENDCOLOR
 exit 1
