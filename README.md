@@ -112,6 +112,6 @@ Try changing the `/src/wifi` file using following steps if hotspot option doesn'
 Instead of the command "nmcli con up hotspot" replace it with the following lines
 ```
 ~~~console
-UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot | cut -d= -f2)
+UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot.nmconnection | cut -d= -f2)
 nmcli con up uuid $UUID
 ~~~
