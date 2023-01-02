@@ -49,6 +49,11 @@ function command_list() {
 
 #Connects to given SSID
 function command_connect() {
+	if [ "$(nmcli radio wifi)" == "disabled" ]
+    then
+		echo "Wifi is disabled"
+		exit 1
+    fi
     shift
     found=0
     for ssid in `nmcli -g name con show --active` 
