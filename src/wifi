@@ -118,7 +118,7 @@ function command_pass() {
     else
         nmcli dev wifi show-password;
     fi
-	exit 
+	exit 0
 }
 
 # Displays all saved wifi networks
@@ -139,7 +139,7 @@ function command_saved() {
     		done) 
 
 	printf "${GREEN}%s${ENDCOLOR}\n" "${list[@]}"
-	exit 
+	exit 0
 }
 
 # Turns Hotspot on
@@ -158,7 +158,7 @@ function command_hotspot() {
 		echo "Hotspot is Turned ON"
 		timeout 3s echo "Showing Password..." > /dev/null
 		nmcli dev wifi show-password
-		exit $?
+		exit 0
 	fi
 	if [ $# == 2 -a $2 == "off" ]
 	then	
@@ -170,7 +170,7 @@ function command_hotspot() {
 		timeout 3s echo "Turning Hotspot OFF..."
 		nmcli con down Hotspot > /dev/null
 		echo "Hotspot is Turned OFF"
-		exit $?
+		exit 1
 	fi
 
 	exit 0
@@ -208,7 +208,7 @@ function command_recon() {
 	echo -e "Saving SSID..."
 	timeout 3s echo -e "Reconnecting to $GREEN'$SSID'$ENDCOLOR..."
 	nmcli dev wifi connect $SSID >> /dev/null && echo -e "Successfully re-connected to $GREEN'$SSID'$ENDCOLOR!"
-	exit $?
+	exit 0
 }
 
 # Forget a wifi network
@@ -222,7 +222,7 @@ function command_forget() {
 if [ $# == 0 ]
 then
 	echo "Try wifi --help or wifi -h for more information"
-	exit $?
+	exit 1
 fi
 
 if [ $1 == "--help" -o $1 == "-h" ]
