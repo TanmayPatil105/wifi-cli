@@ -240,12 +240,12 @@ then
 			>		off             turn wifi off
 			>		status          returns wifi status (on/off)
 			>		list            list available wifi networks
-			>		connect $SSID   	connect to a wifi network
+			>		connect "SSID"  connect to a wifi network
 			>		pass            get password of current network
 			>		saved           list all saved networks
 			>		hotspot         to turn on wifi hotspot
 			>		hotspot off     to turn off wifi hotspot
-			>		forget $SSID    	to forget a network
+			>		forget "SSID"   to forget a network
 			>		recon           to reconnect to connected network
 			>		speed 		to test Network speed
 			>		--help, -h      to list all available commands
