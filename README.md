@@ -108,10 +108,8 @@ Follow [guidelines](https://github.com/TanmayPatil105/wifi-cli/blob/main/CONTRIB
 ### Additional
 Try changing the `/src/wifi` file using following steps if hotspot option doesn't work
 
+```diff
+- nmcli con down Hotspot > /dev/null
++ UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot.nmconnection | cut -d= -f2)
++ nmcli con up uuid $UUID > /dev/null
 ```
-Instead of the command "nmcli con up hotspot" replace it with the following lines
-```
-~~~console
-UUID=$(grep uuid /etc/NetworkManager/system-connections/Hotspot.nmconnection | cut -d= -f2)
-nmcli con up uuid $UUID
-~~~
