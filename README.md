@@ -37,13 +37,13 @@ $ sudo chmod +x install.sh configure
 $ ./configure
 ```
 ```console
-$ ./install.sh
+$ sudo ./install.sh
 ```
 
 ### Uninstallation
 
 ```console
-$ ./install.sh remove
+$ sudo ./install.sh remove
 ```
 <hr/>
 
