@@ -6,12 +6,12 @@ if [ $# == 0 ]
 then
 	if [ -f "$EXE" ]
 	then
-		sudo rm /bin/wifi
+		rm /bin/wifi
 		echo "Removing $EXE.."
 	fi
 
 	echo "Creating $EXE..."
-	sudo cp ./src/wifi /bin/
+	cp ./src/wifi /bin/
 
 	echo "Installed Succesfully"
 fi
@@ -26,7 +26,7 @@ then
 		if [ -f "$EXE" ]
 		then
 			echo "Removing $EXE.."
-			sudo rm /bin/wifi
+			rm /bin/wifi
 		fi
 
 		echo "Uninstalled Succesfully!"
