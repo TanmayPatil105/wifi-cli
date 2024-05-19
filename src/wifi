@@ -186,7 +186,7 @@ function command_speed() {
 		echo "Try \"wifi --help or wifi -h\" for more information"
 		exit 1
 	fi
-	python3 <(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)
+	python3 <(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) 2> /dev/null
 	exit 0
 }
 
